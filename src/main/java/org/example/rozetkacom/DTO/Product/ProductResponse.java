@@ -1,6 +1,7 @@
 package org.example.rozetkacom.DTO.Product;
 
 import lombok.Builder;
+import org.example.rozetkacom.Entity.Category;
 
 @Builder
 public record ProductResponse(
@@ -8,5 +9,5 @@ public record ProductResponse(
         String productName,
         double price,
         Long stockQuantity,
-        String category) {
+        Category category) {
 }

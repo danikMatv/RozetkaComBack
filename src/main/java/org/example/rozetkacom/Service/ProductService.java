@@ -3,6 +3,7 @@ package org.example.rozetkacom.Service;
 import lombok.RequiredArgsConstructor;
 import org.example.rozetkacom.DTO.Product.ProductRequest;
 import org.example.rozetkacom.DTO.Product.ProductResponse;
+import org.example.rozetkacom.DTO.Product.UpdateProductRequest;
 import org.example.rozetkacom.Entity.Product;
 import org.example.rozetkacom.Exeptions.NotFoundException;
 import org.example.rozetkacom.Mapper.ProductMapper;
@@ -18,9 +19,9 @@ public class ProductService {
     private final ProductMapper productMapper;
 
     @Transactional
-    public ProductResponse update(Long productId, ProductRequest productRequest){
+    public ProductResponse update(Long productId, UpdateProductRequest uroductRequest){
         Product productToUpdate = productRepository.findById(productId).orElseThrow(() -> new NotFoundException("For id " + productId + " Product not found "));
-        productMapper.updateProductFromRequest(productRequest, productToUpdate);
+        productMapper.updateProductFromRequest(uroductRequest,productToUpdate);
         return productMapper.mapToProductResponse(productRepository.save(productToUpdate));
     }
 
