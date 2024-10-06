@@ -17,16 +17,4 @@ public interface ProductMapper {
     ProductResponse mapToProductResponse(Product product);
 
     void updateProductFromRequest(UpdateProductRequest updateProductRequest, @MappingTarget Product product);
-
-//    @Mappings({
-//            @Mapping(source = "category", target = "category")
-//    })
-//    default Category map(String categoryId) {
-//        if (categoryId == null || categoryId.isEmpty()) {
-//            return null; // Handle null or empty case as needed
-//        }
-//        Category category = new Category();
-//        category.setId(Long.parseLong(categoryId)); // Assuming categoryId is a String representation of a Long
-//        return category; // Return the new Category instance
-//    }
 }

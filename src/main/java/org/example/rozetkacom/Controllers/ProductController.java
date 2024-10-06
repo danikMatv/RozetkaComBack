@@ -3,7 +3,7 @@ package org.example.rozetkacom.Controllers;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.rozetkacom.DTO.Product.ProductRequest;
+import org.example.rozetkacom.DTO.Product.ProductRequestNew;
 import org.example.rozetkacom.DTO.Product.ProductResponse;
 import org.example.rozetkacom.DTO.Product.UpdateProductRequest;
 import org.example.rozetkacom.Entity.Product;
@@ -39,7 +39,7 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Product createNewProduct(@Valid @RequestBody ProductRequest productRequest){
+    public Product createNewProduct(@Valid @RequestBody ProductRequestNew productRequest){
         return productService.save(productRequest);
     }
 

@@ -1,12 +1,13 @@
 package org.example.rozetkacom.DTO.Product;
 
+import lombok.Builder;
 import lombok.Data;
-import org.example.rozetkacom.Entity.Category;
 
 @Data
-public class ProductRequest {
+@Builder
+public class ProductRequestNew {
     private String productName;
     private double price;
     private Long stockQuantity;
-    private Category category;
+    private Long category;
 }
