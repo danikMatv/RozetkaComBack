@@ -42,5 +42,4 @@ public class Product {
     @OneToOne(mappedBy = "product")
     @JsonIgnore
     private ProductSupplier productSupplier;
-
 }
