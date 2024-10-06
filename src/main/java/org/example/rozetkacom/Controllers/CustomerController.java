@@ -48,7 +48,6 @@ public class CustomerController {
         customerService.deleteCustomerById(customerId);
     }
 
-    //TODO Test this trash
     @PostMapping("/login")
     public CustomerResponse loginCustomer(@RequestBody CustomerLoginRequest loginRequest) {
         return customerService.loginCustomerByFirstNameAndPassword(loginRequest.getFirstName(), loginRequest.getPassword());
