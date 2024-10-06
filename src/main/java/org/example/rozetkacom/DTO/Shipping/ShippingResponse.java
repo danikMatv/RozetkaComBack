@@ -1,10 +1,10 @@
 package org.example.rozetkacom.DTO.Shipping;
 
-import lombok.Data;
+import lombok.Builder;
 import org.example.rozetkacom.Entity.Customer;
 import org.example.rozetkacom.Entity.Orders;
 
-@Data
+@Builder
 public record ShippingResponse(
         Long id,
         String startPlace,
