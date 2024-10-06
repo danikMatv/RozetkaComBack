@@ -14,6 +14,8 @@ import org.example.rozetkacom.Repository.ProductRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ProductService {
@@ -40,6 +42,10 @@ public class ProductService {
             return true;
         }
         return false;
+    }
+
+    public List<Product> getAll(){
+        return productRepository.getAll();
     }
 
     @Transactional
