@@ -44,7 +44,7 @@ public class ProductService {
 
     @Transactional
     public Product save(ProductRequestNew productRequestNew){
-        Category category = categoryRepository.findById(productRequestNew.getCategory()).orElseThrow(() -> new NotFoundException("Categoty with id "
+        Category category = categoryRepository.findById(productRequestNew.getCategory()).orElseThrow(() -> new NotFoundException("Category with id "
                 + productRequestNew.getCategory() + " not found "));
         ProductRequest oldProduct = new ProductRequest();
         oldProduct.setProductName(productRequestNew.getProductName());
