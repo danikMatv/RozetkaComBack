@@ -10,5 +10,4 @@ public class ShippingRequestNew {
     private String destination;
     private int duration;
     private Long customer;
-    private Long orders;
 }

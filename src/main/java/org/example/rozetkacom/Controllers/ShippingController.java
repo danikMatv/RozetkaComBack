@@ -37,10 +37,10 @@ public class ShippingController {
         return shippingService.update(shippingId, shippingRequest);
     }
 
-    @PostMapping
+    @PostMapping("/{orderId}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Shipping createNewShipping(@Valid @RequestBody ShippingRequestNew shippingRequest){
-        return shippingService.save(shippingRequest);
+    public Shipping createNewShipping(@PathVariable Long orderId,@Valid @RequestBody ShippingRequestNew shippingRequest){
+        return shippingService.save(shippingRequest,orderId);
     }
 
     @DeleteMapping("/{shippingId}")

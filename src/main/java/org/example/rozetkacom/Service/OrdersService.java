@@ -33,7 +33,7 @@ public class OrdersService {
         return ordersMapper.mapToOrdersResponse(ordersRepository.save(ordersToUpdate));
     }
 
-    public OrdersResponse getOrdersById(Long ordersId){
+    public Orders getOrdersById(Long ordersId){
         return ordersRepository.getOrdersById(ordersId);
     }
 
@@ -56,13 +56,14 @@ public class OrdersService {
                     .orElseThrow(() -> new NotFoundException("Product not found with id " + productId));
             products.add(product);
         }
-        Orders orders = new Orders();
+        OrdersRequest orders = new OrdersRequest();
         orders.setUnitPrice(ordersRequestNew.getUnitPrice());
         orders.setDescription(ordersRequestNew.getDescription());
         orders.setQuantity(ordersRequestNew.getQuantity());
         orders.setCustomer(customer);
         orders.setProducts(products);
-        return ordersRepository.save(orders);
+        Orders ordersToMap = ordersMapper.mapToOrders(orders);
+        return ordersRepository.save(ordersToMap);
     }
 
 }

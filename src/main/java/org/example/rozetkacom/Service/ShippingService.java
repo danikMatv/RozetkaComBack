@@ -45,9 +45,9 @@ public class ShippingService {
     }
 
     @Transactional
-    public Shipping save(ShippingRequestNew shippingRequestNew) {
-        Orders orders = ordersRepository.findById(shippingRequestNew.getOrders()).orElseThrow(() -> new NotFoundException("Order with id "
-                + shippingRequestNew.getOrders() + " not found "));
+    public Shipping save(ShippingRequestNew shippingRequestNew,Long orderId) {
+        Orders orders = ordersRepository.findById(orderId).orElseThrow(() -> new NotFoundException("Order with id "
+                + orderId + " not found "));
         Customer customer = customerRepository.findById(shippingRequestNew.getCustomer()).orElseThrow(() -> new NotFoundException("Customer with id "
                 + shippingRequestNew.getCustomer() + " not found "));
         ShippingRequest oldShipping = new ShippingRequest();
