@@ -10,12 +10,18 @@ import org.example.rozetkacom.Mapper.CategoryMapper;
 import org.example.rozetkacom.Repository.CategoryRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CategoryService {
 
     private final CategoryRepository categoryRepository;
     private final CategoryMapper categoryMapper;
+
+    public List<Category> getAll(){
+        return categoryRepository.getAll();
+    }
 
     @Transactional
     public Category createNewCategory(CategoryRequest categoryRequest){

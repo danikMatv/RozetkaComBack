@@ -14,6 +14,8 @@ import org.example.rozetkacom.Repository.ProductRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ProductService {
@@ -42,9 +44,13 @@ public class ProductService {
         return false;
     }
 
+    public List<Product> getAll(){
+        return productRepository.getAll();
+    }
+
     @Transactional
     public Product save(ProductRequestNew productRequestNew){
-        Category category = categoryRepository.findById(productRequestNew.getCategory()).orElseThrow(() -> new NotFoundException("Categoty with id "
+        Category category = categoryRepository.findById(productRequestNew.getCategory()).orElseThrow(() -> new NotFoundException("Category with id "
                 + productRequestNew.getCategory() + " not found "));
         ProductRequest oldProduct = new ProductRequest();
         oldProduct.setProductName(productRequestNew.getProductName());
